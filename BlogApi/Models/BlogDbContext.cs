@@ -14,5 +14,9 @@ namespace BlogApi.Models
         }
 
         public DbSet<Blogger> bloggers { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySQL("server=localhost;database=Blog;user=root;password=");
+        }
     }
 }
